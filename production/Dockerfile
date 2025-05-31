@@ -3,15 +3,19 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copy requirements.txt from production/
-COPY requirements.txt .
+COPY production/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy shared directory (models, tokenizer, etc.) from root of repo
-COPY ../shared /app/shared
+# Copy shared directory from repo root
+COPY shared /app/shared
+
+# (Optional) Copy models and tokenizer if needed
+COPY models /app/models
+COPY tokenizer /app/tokenizer
 
 # Copy main.py from production/
-COPY main.py .
+COPY production/main.py .
 
 EXPOSE 8000
 
