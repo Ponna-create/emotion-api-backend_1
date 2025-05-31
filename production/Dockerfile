@@ -3,15 +3,15 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copy requirements.txt from production/
-COPY requirements.txt .
+COPY production/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy model files and tokenizer from shared/models/phase3 to /app/model
-COPY ../shared/models/phase3 /app/model
+COPY shared/models/phase3 /app/model
 
 # Copy main.py from production/
-COPY main.py .
+COPY production/main.py .
 
 EXPOSE 8000
 
