@@ -6,14 +6,18 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy all necessary application files and folders
-COPY main.py ./
-COPY shared/ ./shared/
-COPY models/ ./models/
-COPY config/ ./config/
+# Create required directories
+RUN mkdir -p models config shared
 
-# Create required directories if they don't exist
-RUN mkdir -p models config
+# Copy configuration files if they exist
+COPY config/ ./config/
+COPY shared/ ./shared/
+
+# Copy main application file
+COPY main.py ./
+
+# Create empty model file if it doesn't exist
+RUN touch models/emotion_model.pt
 
 # Expose the port (optional, Render auto-detects)
 EXPOSE 8000
