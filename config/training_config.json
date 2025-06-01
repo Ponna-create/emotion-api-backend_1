@@ -1,0 +1,21 @@
+{
+    "model_config": {
+        "hidden_size": 768,
+        "num_classes": 7,
+        "dropout_rate": 0.1
+    },
+    "training_params": {
+        "batch_size": 32,
+        "learning_rate": 2e-5,
+        "epochs": 10
+    },
+    "labels": [
+        "joy",
+        "sadness",
+        "anger",
+        "fear",
+        "surprise",
+        "disgust",
+        "neutral"
+    ]
+} 

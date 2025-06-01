@@ -1,0 +1,6 @@
+{
+    "test_key": {
+        "tier": "basic",
+        "rate_limit": "10/minute"
+    }
+} 
