@@ -1,0 +1,35 @@
+{
+    "model": {
+        "name": "distilbert-base-multilingual-cased",
+        "max_length": 128,
+        "batch_size": 32,
+        "learning_rate": 2e-5,
+        "warmup_ratio": 0.1,
+        "weight_decay": 0.01,
+        "fp16": true,
+        "max_grad_norm": 1.0
+    },
+    "data": {
+        "text_column": "processed_text",
+        "emotion_column": "emotion",
+        "language_column": "lang",
+        "supported_languages": [
+            "tanglish",
+            "teluglish",
+            "maranglish",
+            "english"
+        ],
+        "emotion_labels": [
+            "positive",
+            "negative",
+            "neutral",
+            "sarcasm",
+            "questions"
+        ],
+        "preserve_emojis": true
+    },
+    "paths": {
+        "model_dir": "models/phase3",
+        "output_dir": "outputs/phase3"
+    }
+} 
