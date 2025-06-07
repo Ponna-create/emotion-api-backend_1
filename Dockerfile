@@ -2,25 +2,22 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Copy requirements first for better caching
-COPY requirements.txt ./
+# Copy and install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create required directories
+# Create required folders and copy configs
 RUN mkdir -p models config shared
-
-# Copy configuration files if they exist
 COPY config/ ./config/
 COPY shared/ ./shared/
+COPY main.py .
 
-# Copy main application file
-COPY main.py ./
-
-# Create empty model file if it doesn't exist
+# Optional: placeholder model (ensure it's not overwritten)
 RUN touch models/emotion_model.pt
 
-# Expose the port (optional, Render auto-detects)
-EXPOSE 8000
+# Railway default port is 5000 (set $PORT fallback)
+ENV PORT=5000
+EXPOSE 5000
 
-# Start with the port assigned by Render.com
-CMD ["sh", "-c", "exec uvicorn main:app --host 0.0.0.0 --port $PORT --workers 4"]
+# Launch FastAPI with Uvicorn using dynamic port
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
