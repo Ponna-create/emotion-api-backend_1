@@ -63,9 +63,9 @@ class EmotionDetector:
             num_labels=len(EMOTION_LABELS)
         ).to(self.device)
         
-        # Load trained weights
+        # Load trained weights with explicit weights_only=False for PyTorch 2.6+ compatibility
         try:
-            state_dict = torch.load(model_path, map_location=self.device)
+            state_dict = torch.load(model_path, map_location=self.device, weights_only=False)
             self.model.load_state_dict(state_dict)
             logger.info("Model weights loaded successfully")
         except Exception as e:
