@@ -53,7 +53,7 @@ app.add_middleware(
 )
 
 # Model and config paths
-MODEL_PATH = os.path.join("models", "emotion_model.pt")
+MODEL_PATH = os.path.join("shared", "models", "phase3", "best_model.pt")
 CONFIG_PATH = os.path.join("config", "training_config.json")
 
 # API key configuration
