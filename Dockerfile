@@ -10,7 +10,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN mkdir -p models config shared
 COPY config/ ./config/
 COPY shared/ ./shared/
-COPY shared/models/ ./shared/models/
 COPY main.py .
 
 # Optional: placeholder model (ensure it's not overwritten)
