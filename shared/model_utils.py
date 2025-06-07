@@ -64,9 +64,14 @@ class EmotionDetector:
         ).to(self.device)
         
         # Load trained weights
-        self.model.load_state_dict(
-            torch.load(model_path, map_location=self.device, weights_only=False)
-        )
+        try:
+            state_dict = torch.load(model_path, map_location=self.device)
+            self.model.load_state_dict(state_dict)
+            logger.info("Model weights loaded successfully")
+        except Exception as e:
+            logger.error(f"Error loading model weights: {str(e)}")
+            raise
+            
         self.model.eval()
     
     def predict(self, text: str) -> Dict:

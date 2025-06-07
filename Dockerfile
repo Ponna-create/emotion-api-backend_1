@@ -12,8 +12,9 @@ COPY config/ ./config/
 COPY shared/ ./shared/
 COPY main.py .
 
-# Optional: placeholder model (ensure it's not overwritten)
-RUN touch models/emotion_model.pt
+# Ensure models directory exists and has correct permissions
+RUN mkdir -p shared/models/phase3
+RUN chmod -R 755 shared/models
 
 # Railway default port is 5000 (set $PORT fallback)
 ENV PORT=5000
