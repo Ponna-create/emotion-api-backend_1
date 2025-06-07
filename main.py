@@ -77,7 +77,7 @@ class TextInput(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "text": EXAMPLE_TEXTS['joy']
+                "text": EXAMPLE_TEXTS['positive']
             }
         }
 
