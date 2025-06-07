@@ -65,7 +65,7 @@ class EmotionDetector:
         
         # Load trained weights
         self.model.load_state_dict(
-            torch.load(model_path, map_location=self.device, weights_only=False)
+            torch.load(model_path, map_location=self.device)
         )
         self.model.eval()
     
