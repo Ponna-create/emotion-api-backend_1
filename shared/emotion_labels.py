@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Emotion labels and descriptions for the multilingual emotion classifier.
 """
@@ -30,8 +31,8 @@ EMOTION_DESCRIPTIONS = {
 
 # Examples for API documentation
 EXAMPLE_TEXTS = {
-    'anger': 'I can't believe they cancelled my favorite show! 😠',
-    'fear': 'I'm really scared about tomorrow's presentation 😨',
+    'anger': 'I can\'t believe they cancelled my favorite show! 😠',
+    'fear': 'I\'m really scared about tomorrow\'s presentation 😨',
     'hate': 'I absolutely despise this kind of behavior 😡',
     'joy': 'Just got promoted at work! So happy! 🎉',
     'love': 'You mean the world to me ❤️',
